@@ -17,4 +17,8 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
+
+    &__hidden {
+        display: none;
+    }
 }

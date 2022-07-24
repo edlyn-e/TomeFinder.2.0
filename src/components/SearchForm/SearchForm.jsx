@@ -3,9 +3,11 @@ import styles from "./SearchForm.module.scss";
 import Books from "../Books/Books";
 import { useState } from "react";
 import { useEffect } from "react";
+import Picture from "../Picture/Picture";
 
 const SearchForm = () => {
     const [books, setBooks] = useState([]);
+    const [image, setImage] = useState([]);
 
     useEffect(() => {
         const fetchBooks = async (query) => {
@@ -27,6 +29,7 @@ const SearchForm = () => {
 
             console.log("trying to get image links", imageLink);
             setBooks(bookResults);
+            setImage(imageLink);
         };
 
         fetchBooks("harry potter");
@@ -44,6 +47,14 @@ const SearchForm = () => {
             </div>
 
             <div className={styles.SearchForm__results}>
+                <section className={styles.SearchForm__hidden}>
+                    {image.map((picture) => {
+                        const { thumbnail } = picture;
+
+                        return <Picture source={thumbnail} />;
+                    })}
+                </section>
+
                 {books.map((book, i) => {
                     const { title, authors, description } = book;
 
