@@ -3,7 +3,6 @@ import styles from "./SearchForm.module.scss";
 import Books from "../Books/Books";
 import { useState } from "react";
 import { useEffect } from "react";
-import Picture from "../Picture/Picture";
 
 const SearchForm = () => {
     const [books, setBooks] = useState([]);
@@ -45,7 +44,7 @@ const SearchForm = () => {
                 />
                 <button className={styles.SearchForm__button}>Go</button>
             </div>
-            <section className={styles.SearchForm__hidden}>
+            {/* <section className={styles.SearchForm__hidden}>
                 {image.map((picture, i) => {
                     const { thumbnail, smallThumbnail } = picture;
 
@@ -57,16 +56,23 @@ const SearchForm = () => {
                         />
                     );
                 })}
-            </section>
+            </section> */}
 
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
-                    const { title, authors, description } = book;
+                    const {
+                        imageLinks: { thumbnail, smallThumbnail },
+                        title,
+                        authors,
+                        description,
+                    } = book;
 
                     return (
                         <Books
                             key={i}
                             bookTitle={title}
+                            source={thumbnail}
+                            secondarySource={smallThumbnail}
                             bookAuthors={authors}
                             bookDescription={description}
                         />

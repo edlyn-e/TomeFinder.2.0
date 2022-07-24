@@ -1,12 +1,26 @@
 import styles from "./Books.module.scss";
 import TextTruncate from "react-text-truncate";
-import Picture from "../Picture/Picture";
 
-const Books = ({ bookTitle, bookAuthors, bookDescription }) => {
+const Books = ({
+    source,
+    secondarySource,
+    bookTitle,
+    bookAuthors,
+    bookDescription,
+}) => {
     return (
         <div>
             <section className={styles.Books__tile}>
-                <Picture />
+                {/* <Picture  /> */}
+                <img
+                    src={
+                        source
+                            ? source || secondarySource
+                            : "https://via.placeholder.com/200"
+                    }
+                    alt=""
+                />
+
                 <h4>{bookTitle}</h4>
                 <p>{bookAuthors ? bookAuthors : "no authors listed"}</p>
                 <p>
