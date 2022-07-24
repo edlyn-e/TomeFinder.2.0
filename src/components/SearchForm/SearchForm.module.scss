@@ -1,0 +1,20 @@
+.SearchForm {
+    &__search {
+        margin-bottom: 20px;
+    }
+
+    &__input {
+        width: 200px;
+        padding: 2px;
+    }
+
+    &__button {
+        margin-left: 5px;
+    }
+
+    &__results {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,25 @@
+* {
+    font-family: "Barlow", sans-serif;
+}
+
+.App {
+    text-align: center;
+    margin: 15px;
+
+    &__logo {
+        height: 100px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    &__header {
+        margin-top: 0px;
+
+        h2 {
+            font-family: "IM Fell English";
+            margin: 0;
+            font-size: xx-large;
+        }
+    }
+}
