@@ -5,11 +5,15 @@ const Books = ({ bookTitle, bookAuthors, bookDescription }) => {
     return (
         <div>
             <section className={styles.Books__tile}>
+                <img
+                    src="https://via.placeholder.com/200"
+                    alt=""
+                    className={styles.Books__img}
+                />
                 <h4>{bookTitle}</h4>
                 <p>{bookAuthors}</p>
                 <p>
                     <TextTruncate
-                        expandable
                         line={3}
                         truncateText="..."
                         text={
@@ -17,7 +21,7 @@ const Books = ({ bookTitle, bookAuthors, bookDescription }) => {
                                 ? bookDescription
                                 : "no description available"
                         }
-                        textTruncateChild={<p>Continue reading...</p>}
+                        textTruncateChild={<span>Continue reading...</span>}
                     />
                 </p>
             </section>

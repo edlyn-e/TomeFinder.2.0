@@ -21,11 +21,17 @@ const SearchForm = () => {
 
             console.log(bookResults);
 
+            const imageLink = bookResults.map((item) => {
+                return item.imageLinks;
+            });
+
+            console.log("trying to get image links", imageLink);
             setBooks(bookResults);
         };
 
-        fetchBooks();
+        fetchBooks("harry potter");
     }, []);
+
     return (
         <div>
             <div className={styles.SearchForm__search}>
@@ -36,9 +42,11 @@ const SearchForm = () => {
                 />
                 <button className={styles.SearchForm__button}>Go</button>
             </div>
+
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
                     const { title, authors, description } = book;
+
                     return (
                         <Books
                             key={i}
