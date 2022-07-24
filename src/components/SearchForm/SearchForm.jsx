@@ -3,16 +3,16 @@ import styles from "./SearchForm.module.scss";
 import Books from "../Books/Books";
 import { useState } from "react";
 import { useEffect } from "react";
-import Picture from "../Picture/Picture";
 
 const SearchForm = () => {
     const [books, setBooks] = useState([]);
     const [image, setImage] = useState([]);
+    const [input, setInput] = useState("");
 
     useEffect(() => {
-        const fetchBooks = async (query) => {
+        const fetchBooks = async (input) => {
             const response = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`,
+                `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40`,
             );
 
             const data = await response.json();
@@ -27,7 +27,6 @@ const SearchForm = () => {
                 return item.imageLinks;
             });
 
-            console.log("trying to get image links", imageLink);
             setBooks(bookResults);
             setImage(imageLink);
         };
@@ -39,25 +38,14 @@ const SearchForm = () => {
         <div>
             <div className={styles.SearchForm__search}>
                 <input
-                    type="text"
-                    placeholder="Search for your next read"
                     className={styles.SearchForm__input}
+                    type="text"
+                    placeholder="Search for your next read here"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
                 />
                 <button className={styles.SearchForm__button}>Go</button>
             </div>
-            <section className={styles.SearchForm__hidden}>
-                {image.map((picture, i) => {
-                    const { thumbnail, smallThumbnail } = picture;
-
-                    return (
-                        <Picture
-                            key={i}
-                            source={thumbnail}
-                            secondarySource={smallThumbnail}
-                        />
-                    );
-                })}
-            </section>
 
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
