@@ -11,7 +11,6 @@ const Books = ({
     return (
         <div>
             <section className={styles.Books__tile}>
-                {/* <Picture  /> */}
                 <img
                     src={
                         source
@@ -19,6 +18,7 @@ const Books = ({
                             : "https://via.placeholder.com/200"
                     }
                     alt=""
+                    className={styles.Books__cover}
                 />
 
                 <h4>{bookTitle}</h4>
