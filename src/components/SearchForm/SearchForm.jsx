@@ -45,16 +45,21 @@ const SearchForm = () => {
                 />
                 <button className={styles.SearchForm__button}>Go</button>
             </div>
+            <section className={styles.SearchForm__hidden}>
+                {image.map((picture, i) => {
+                    const { thumbnail, smallThumbnail } = picture;
+
+                    return (
+                        <Picture
+                            key={i}
+                            source={thumbnail}
+                            secondarySource={smallThumbnail}
+                        />
+                    );
+                })}
+            </section>
 
             <div className={styles.SearchForm__results}>
-                <section className={styles.SearchForm__hidden}>
-                    {image.map((picture) => {
-                        const { thumbnail } = picture;
-
-                        return <Picture source={thumbnail} />;
-                    })}
-                </section>
-
                 {books.map((book, i) => {
                     const { title, authors, description } = book;
 
