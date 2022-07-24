@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+## Project: Google Books API Search Engine (TomeFinder)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
 
-## Available Scripts
+This project requires the use of both DOM manipulation and Asynchronous programming to build a Google Books search engine. The aim of the project is to allow the user to search for a book inside the Google Books database to find the desired publication.
 
-In the project directory, you can run:
+### Goals
 
-### `npm start`
+-   Create a search engine that accurately returns matches for a user's search.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Criteria
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Must include the following:
 
-### `npm test`
+-   Header section introducing the page
+-   Form containing a text input and a submit/search button
+-   Grid of books intructions // ??? what does this mean?
+-   On click of the submit button, request books from the Google Books API using the input value as your query string
+-   Books received should be rendered in books grid
+-   Each book should have:
+    -   an image
+    -   author
+    -   title and,
+    -   description
+-   Grid should be responsive on different screen sizes
+-   Use async/await
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Styling:
 
-### `npm run build`
+-   Must use BEM.
+-   Use modules so each block has its own SCSS.
+-   Palette module should also use variables.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Application Design:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   Separate DOM functions and non-DOM functions in different modules
+-   Write as many non-DOM functions as you can
+-   Functions should be pure and as reusable as possible
+-   Always use iterators over loops
+-   Always parametize and abstract large pieces of duplicate code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+BONUS:
 
-### `npm run eject`
+-   Give feedback when no book results can be found for the query
+-   When the user clicks a book in the grid, a pop-up should appear with more information about the book:
+    -   release date
+    -   publish date
+    -   country
+    -   languages
+    -   publisher
+    -   version/edition (if applicable)
+    -   volume count (if applicable)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## The to-do list
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Even though the criteria is already quite extensive for this project, this section will cover some notes regarding the project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="./Mind%20map%20API%20project.png">
