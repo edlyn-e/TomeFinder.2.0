@@ -3,7 +3,7 @@ import TextTruncate from "react-text-truncate";
 
 const Books = ({
     source,
-    secondarySource,
+
     bookTitle,
     bookAuthors,
     bookDescription,
@@ -11,15 +11,7 @@ const Books = ({
     return (
         <div>
             <section className={styles.Books__tile}>
-                <img
-                    src={
-                        source
-                            ? source || secondarySource
-                            : "https://via.placeholder.com/200"
-                    }
-                    alt=""
-                    className={styles.Books__cover}
-                />
+                <img src={source} alt="" className={styles.Books__cover} />
 
                 <h4>{bookTitle}</h4>
                 <p>{bookAuthors ? bookAuthors : "no authors listed"}</p>
@@ -32,7 +24,7 @@ const Books = ({
                                 ? bookDescription
                                 : "no description available"
                         }
-                        textTruncateChild={<span>Continue reading...</span>}
+                        textTruncateChild={<span>More info</span>}
                     />
                 </p>
             </section>

@@ -2,15 +2,12 @@ import React from "react";
 import styles from "./SearchForm.module.scss";
 import Books from "../Books/Books";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const SearchForm = () => {
     const [books, setBooks] = useState([]);
-    const [image, setImage] = useState([]);
-    const [input, setInput] = useState("");
 
-    useEffect(() => {
-        const fetchBooks = async (input) => {
+    const fetchBooks = async (input) => {
+        try {
             const response = await fetch(
                 `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40`,
             );
@@ -21,47 +18,49 @@ const SearchForm = () => {
                 return book.volumeInfo;
             });
 
-            console.log(bookResults);
-
-            const imageLink = bookResults.map((item) => {
-                return item.imageLinks;
-            });
+            console.log(bookResults[0]);
 
             setBooks(bookResults);
-            setImage(imageLink);
-        };
+        } catch (e) {
+            new Error("error fetching book");
+        }
+    };
 
-        fetchBooks("harry potter");
-    }, []);
+    const onButtonClick = (e) => {
+        e.preventDefault();
+        const newInput = e.target[0].value;
+        fetchBooks(newInput);
+    };
 
     return (
         <div>
-            <div className={styles.SearchForm__search}>
+            <form
+                className={styles.SearchForm__search}
+                onSubmit={onButtonClick}
+            >
                 <input
                     className={styles.SearchForm__input}
                     type="text"
                     placeholder="Search for your next read here"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
                 />
-                <button className={styles.SearchForm__button}>Go</button>
-            </div>
+                <input type="submit" className={styles.SearchForm__button} />
+            </form>
 
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
-                    const {
-                        imageLinks: { thumbnail, smallThumbnail },
-                        title,
-                        authors,
-                        description,
-                    } = book;
+                    const { imageLinks, title, authors, description } = book;
+
+                    if (!book.hasOwnProperty("imageLinks")) {
+                        book["imageLinks"] = {
+                            thumbnail: "https://via.placeholder.com/200",
+                        };
+                    }
 
                     return (
                         <Books
                             key={i}
                             bookTitle={title}
-                            source={thumbnail}
-                            secondarySource={smallThumbnail}
+                            source={imageLinks.thumbnail}
                             bookAuthors={authors}
                             bookDescription={description}
                         />
