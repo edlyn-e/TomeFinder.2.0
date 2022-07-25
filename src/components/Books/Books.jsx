@@ -15,18 +15,17 @@ const Books = ({
 
                 <h4>{bookTitle}</h4>
                 <p>{bookAuthors ? bookAuthors : "no authors listed"}</p>
-                <p>
-                    <TextTruncate
-                        line={3}
-                        truncateText="..."
-                        text={
-                            bookDescription
-                                ? bookDescription
-                                : "no description available"
-                        }
-                        textTruncateChild={<span>More info</span>}
-                    />
-                </p>
+                <TextTruncate
+                    line={3}
+                    element="p"
+                    truncateText="..."
+                    text={
+                        bookDescription
+                            ? bookDescription
+                            : "no description available"
+                    }
+                    textTruncateChild={<span>More info</span>}
+                />
             </section>
         </div>
     );
