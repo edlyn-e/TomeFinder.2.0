@@ -9,13 +9,21 @@ const SearchForm = () => {
     const fetchBooks = async (input) => {
         try {
             const response = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40`,
+                `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40`
             );
 
             const data = await response.json();
             const results = data.items;
             const bookResults = results.map((book) => {
-                return book.volumeInfo;
+                const bookInfo = book.volumeInfo;
+                return {
+                    title: bookInfo.title,
+                    authors: bookInfo.authors,
+                    description: bookInfo.description,
+                    imageLinks: bookInfo.imageLinks ?? {
+                        thumbnail: "https://via.placeholder.com/200"
+                    }
+                };
             });
 
             console.log(bookResults[0]);
@@ -49,12 +57,6 @@ const SearchForm = () => {
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
                     const { imageLinks, title, authors, description } = book;
-
-                    if (!book.hasOwnProperty("imageLinks")) {
-                        book["imageLinks"] = {
-                            thumbnail: "https://via.placeholder.com/200",
-                        };
-                    }
 
                     return (
                         <Books
