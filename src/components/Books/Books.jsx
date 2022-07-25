@@ -1,15 +1,22 @@
 import styles from "./Books.module.scss";
 import TextTruncate from "react-text-truncate";
 
-const Books = ({ bookTitle, bookAuthors, bookDescription }) => {
+const Books = ({
+    source,
+
+    bookTitle,
+    bookAuthors,
+    bookDescription,
+}) => {
     return (
         <div>
             <section className={styles.Books__tile}>
+                <img src={source} alt="" className={styles.Books__cover} />
+
                 <h4>{bookTitle}</h4>
-                <p>{bookAuthors}</p>
+                <p>{bookAuthors ? bookAuthors : "no authors listed"}</p>
                 <p>
                     <TextTruncate
-                        expandable
                         line={3}
                         truncateText="..."
                         text={
@@ -17,7 +24,7 @@ const Books = ({ bookTitle, bookAuthors, bookDescription }) => {
                                 ? bookDescription
                                 : "no description available"
                         }
-                        textTruncateChild={<p>Continue reading...</p>}
+                        textTruncateChild={<span>More info</span>}
                     />
                 </p>
             </section>

@@ -17,4 +17,10 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
+
+    &__hidden {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }
