@@ -1,44 +1,34 @@
+@import "/src/palette.scss";
+
 .Books {
     &__tile {
-        background-color: #d5c57a;
-        box-shadow: 5px 5px #f1a208;
+        background-color: $tile-background;
+        border: 4px solid $outline;
         border-radius: 12px;
         width: 250px;
-        min-height: 600px;
+        min-height: 300px;
         height: auto;
         padding: 10px;
-        margin: 15px;
+        margin: 20px;
+        color: $outline;
     }
 
     &__tile:hover {
-        background-color: #efe6c1;
+        background-color: $app-background-light;
+        color: black;
+        border: 4px solid $app-background-light;
     }
 
     &__cover {
         margin: 15px;
         width: 200px;
-        border: 10px solid white;
+        border: 5px solid $outline;
     }
 
-    &__buttonholder {
-        display: flex;
-        justify-content: center;
-        align-content: flex-end;
-    }
-
-    &__btn {
-        border: none;
+    &__click {
+        border: 2px solid black;
         padding: 5px;
-        border-radius: 5px;
-        margin: 5px;
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-    }
-
-    &__btn:hover {
-        background-color: rgb(205, 205, 205);
+        border-radius: 10px;
+        font-size: smaller;
     }
 }

@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./SearchForm.module.scss";
 import Books from "../Books/Books";
 import { useState } from "react";
+import logo from "./logo.png";
+import Footer from "../Footer/Footer";
 
 const SearchForm = () => {
     const [books, setBooks] = useState([]);
@@ -20,10 +22,13 @@ const SearchForm = () => {
                     title: bookInfo.title,
                     authors: bookInfo.authors,
                     info: bookInfo.infoLink,
-                    description: bookInfo.description,
+
                     imageLinks: bookInfo.imageLinks ?? {
                         thumbnail: "https://via.placeholder.com/200",
                     },
+                    description: bookInfo.description,
+                    date: bookInfo.publishedDate,
+                    publisher: bookInfo.publisher,
                 };
             });
 
@@ -42,23 +47,45 @@ const SearchForm = () => {
     };
 
     return (
-        <div>
-            <form
-                className={styles.SearchForm__search}
-                onSubmit={onButtonClick}
-            >
-                <input
-                    className={styles.SearchForm__input}
-                    type="text"
-                    placeholder="Search for your next read here"
+        <div className={styles.SearchForm}>
+            <section className={styles.SearchForm__header}>
+                <img
+                    src={logo}
+                    className={styles.SearchForm__logo}
+                    alt="logo"
                 />
-                <input type="submit" className={styles.SearchForm__button} />
-            </form>
+                <section className={styles.SearchForm__heading}>
+                    <h1 className={styles.SearchForm__title}>OPUS INVENIRE</h1>
+
+                    <form
+                        className={styles.SearchForm__search}
+                        onSubmit={onButtonClick}
+                    >
+                        <input
+                            className={styles.SearchForm__input}
+                            type="text"
+                            placeholder="Search for your next read here"
+                        />
+                        <input
+                            type="submit"
+                            className={styles.SearchForm__button}
+                            value=">"
+                        />
+                    </form>
+                </section>
+            </section>
 
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
-                    const { imageLinks, title, authors, description, info } =
-                        book;
+                    const {
+                        imageLinks,
+                        title,
+                        authors,
+                        description,
+                        info,
+                        date,
+                        publisher,
+                    } = book;
 
                     return (
                         <Books
@@ -68,10 +95,13 @@ const SearchForm = () => {
                             bookAuthors={authors}
                             bookDescription={description}
                             bookInfoLink={info}
+                            bookDate={date}
+                            bookPublisher={publisher}
                         />
                     );
                 })}
             </div>
+            <Footer />
         </div>
     );
 };
