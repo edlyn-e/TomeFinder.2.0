@@ -1,25 +1,26 @@
+@import "/src/palette.scss";
+
 * {
-    font-family: "Barlow", sans-serif;
+    font-family: "Jura", sans-serif;
 }
 
 .App {
     text-align: center;
-    margin: 15px;
 
     &__logo {
-        height: 100px;
-        margin-top: 10px;
-        margin-bottom: 0;
-        padding-bottom: 0;
+        height: 65px;
     }
 
     &__header {
-        margin-top: 0px;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
 
         h2 {
             font-family: "IM Fell English";
-            margin: 0;
             font-size: xx-large;
+            margin-bottom: 0px;
         }
     }
 }

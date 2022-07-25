@@ -1,0 +1,30 @@
+@import "/src/palette.scss";
+
+.Modal {
+    background-color: $modal;
+    border-radius: 12px;
+    width: 500px;
+    max-width: auto;
+    min-height: fit-content;
+    height: auto;
+    padding: 10px 30px;
+    color: white;
+    margin: 15px 0px;
+    border: 2px solid $outline;
+
+    &__btn {
+        margin: 10px 0px 15px;
+        border: none;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    &__btn:hover {
+        background-color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
