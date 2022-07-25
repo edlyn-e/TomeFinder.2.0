@@ -9,7 +9,7 @@ const SearchForm = () => {
     const fetchBooks = async (input) => {
         try {
             const response = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40`
+                `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40`,
             );
 
             const data = await response.json();
@@ -19,14 +19,15 @@ const SearchForm = () => {
                 return {
                     title: bookInfo.title,
                     authors: bookInfo.authors,
+                    info: bookInfo.infoLink,
                     description: bookInfo.description,
                     imageLinks: bookInfo.imageLinks ?? {
-                        thumbnail: "https://via.placeholder.com/200"
-                    }
+                        thumbnail: "https://via.placeholder.com/200",
+                    },
                 };
             });
 
-            console.log(bookResults[0]);
+            console.log(results[0]);
 
             setBooks(bookResults);
         } catch (e) {
@@ -56,7 +57,8 @@ const SearchForm = () => {
 
             <div className={styles.SearchForm__results}>
                 {books.map((book, i) => {
-                    const { imageLinks, title, authors, description } = book;
+                    const { imageLinks, title, authors, description, info } =
+                        book;
 
                     return (
                         <Books
@@ -65,6 +67,7 @@ const SearchForm = () => {
                             source={imageLinks.thumbnail}
                             bookAuthors={authors}
                             bookDescription={description}
+                            bookInfoLink={info}
                         />
                     );
                 })}

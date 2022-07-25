@@ -10,9 +10,35 @@
         margin: 15px;
     }
 
+    &__tile:hover {
+        background-color: #efe6c1;
+    }
+
     &__cover {
         margin: 15px;
         width: 200px;
         border: 10px solid white;
+    }
+
+    &__buttonholder {
+        display: flex;
+        justify-content: center;
+        align-content: flex-end;
+    }
+
+    &__btn {
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 5px;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    &__btn:hover {
+        background-color: rgb(205, 205, 205);
     }
 }
