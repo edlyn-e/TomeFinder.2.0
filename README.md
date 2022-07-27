@@ -14,7 +14,9 @@ Must include the following:
 
 -   Header section introducing the page
 -   Form containing a text input and a submit/search button
--   Grid of books intructions // ??? what does this mean?
+-   Grid of books
+
+Instructions
 -   On click of the submit button, request books from the Google Books API using the input value as your query string
 -   Books received should be rendered in books grid
 -   Each book should have:
