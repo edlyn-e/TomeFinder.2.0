@@ -15,10 +15,16 @@ const SearchForm = () => {
             );
 
             const data = await response.json();
-            const results = data.items;
+            const results = data.items ?? [];
+
+            if (data.items === 0) {
+                return [];
+            }
+
             const bookResults = results.map((book) => {
                 const bookInfo = book.volumeInfo;
                 return {
+                    id: book.id,
                     title: bookInfo.title,
                     authors: bookInfo.authors,
                     info: bookInfo.infoLink,
@@ -76,30 +82,33 @@ const SearchForm = () => {
             </section>
 
             <div className={styles.SearchForm__results}>
-                {books.map((book, i) => {
-                    const {
-                        imageLinks,
-                        title,
-                        authors,
-                        description,
-                        info,
-                        date,
-                        publisher,
-                    } = book;
+                {books.length > 0 &&
+                    books.map((book, i) => {
+                        const {
+                            id,
+                            imageLinks,
+                            title,
+                            authors,
+                            description,
+                            info,
+                            date,
+                            publisher,
+                        } = book;
 
-                    return (
-                        <Books
-                            key={i}
-                            bookTitle={title}
-                            source={imageLinks.thumbnail}
-                            bookAuthors={authors}
-                            bookDescription={description}
-                            bookInfoLink={info}
-                            bookDate={date}
-                            bookPublisher={publisher}
-                        />
-                    );
-                })}
+                        return (
+                            <Books
+                                key={id}
+                                bookTitle={title}
+                                source={imageLinks.thumbnail}
+                                bookAuthors={authors}
+                                bookDescription={description}
+                                bookInfoLink={info}
+                                bookDate={date}
+                                bookPublisher={publisher}
+                            />
+                        );
+                    })}
+                {books.length === 0 && <p>No books found</p>}
             </div>
             <Footer />
         </div>
