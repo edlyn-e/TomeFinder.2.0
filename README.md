@@ -1,4 +1,4 @@
-## Project: Google Books API Search Engine (TomeFinder)
+## Project: Google Books API Search Engine (Opus-Invenire)
 
 ### Overview
 
