@@ -58,3 +58,7 @@ BONUS:
 Even though the criteria is already quite extensive for this project, this section will cover some notes regarding the project.
 
 <img src="./Mind%20map%20API%20project.png">
+
+## The APP
+
+<img src="./googlebooksAPI-1.png" />
