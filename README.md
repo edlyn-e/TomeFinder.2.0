@@ -1,4 +1,4 @@
-## Project: Google Books API Search Engine (TomeFinder)
+## Project: Google Books API Search Engine (Opus-Invenire)
 
 ### Overview
 
@@ -61,7 +61,8 @@ BONUS:
 
 Even though the criteria is already quite extensive for this project, this section will cover some notes regarding the project.
 
-<!-- <img src="./Mind%20map%20API%20project.png"> -->
+
+<img src="./Mind%20map%20API%20project.png">
 
 ## Improvements
 
@@ -93,3 +94,9 @@ The app functions but there can be improvements. If I were to re-do/re-vamp this
 
 -   Flexible styling - avoid hard coding lengths and widths for the search bar and placement of visual elements
 -   Hierarchy of text/font sizes. At the moment, everything is the same size so it doesn't quite let the user know what is the most important piece of information.
+
+
+## The APP
+
+<img src="./googlebooksAPI-1.png" />
+
