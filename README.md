@@ -64,6 +64,11 @@ Even though the criteria is already quite extensive for this project, this secti
 
 <img src="./Mind%20map%20API%20project.png">
 
+
+## The APP
+
+<img src="./googlebooksAPI-1.png" />
+
 ## Improvements
 
 The app functions but there can be improvements. If I were to re-do/re-vamp this project, here are a list of things I would do differently. Parametising and abstracting large pieces of code did not quite make sense at the time of development, however, in hindsight, I've come to understand why exactly this is good practice.
@@ -96,7 +101,4 @@ The app functions but there can be improvements. If I were to re-do/re-vamp this
 -   Hierarchy of text/font sizes. At the moment, everything is the same size so it doesn't quite let the user know what is the most important piece of information.
 
 
-## The APP
-
-<img src="./googlebooksAPI-1.png" />
 
