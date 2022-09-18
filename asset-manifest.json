@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/opus-invenire/static/css/main.bccdba82.css",
+    "main.js": "/opus-invenire/static/js/main.c92b0cee.js",
+    "static/js/787.08049047.chunk.js": "/opus-invenire/static/js/787.08049047.chunk.js",
+    "static/media/logo.png": "/opus-invenire/static/media/logo.fb6ad26bdd8e3a0ef319.png",
+    "index.html": "/opus-invenire/index.html",
+    "main.bccdba82.css.map": "/opus-invenire/static/css/main.bccdba82.css.map",
+    "main.c92b0cee.js.map": "/opus-invenire/static/js/main.c92b0cee.js.map",
+    "787.08049047.chunk.js.map": "/opus-invenire/static/js/787.08049047.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bccdba82.css",
+    "static/js/main.c92b0cee.js"
+  ]
+}
